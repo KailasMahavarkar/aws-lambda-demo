@@ -65,6 +65,14 @@ app.get("/", (req, res) => {
 	});
 });
 
+// basic 200 response on index page
+app.get("/ping", (req, res) => {
+	return res.send({
+		message: "pong",
+		status: "success",
+	});
+});
+
 if (MODE === "dev") {
 }
 // start server only in dev mode (prod mode is Lambda)
