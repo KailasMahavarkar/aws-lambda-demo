@@ -4,6 +4,7 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
+		"prod": "esr ./src/app.ts",
 		"dev": "nodemon"
 	},
 	"dependencies": {
@@ -13,11 +14,9 @@
 		"crypto-js": "^4.1.1",
 		"dotenv": "^16.0.1",
 		"dotenv-conversion": "^1.6.6",
-		"dotenv-expand": "^8.0.3",
+		"esbuild": "^0.14.48",
 		"esbuild-runner": "^2.2.1",
-		"express": "^4.18.1",
-		"flat": "^5.0.2",
-		"n-readlines": "^1.0.1"
+		"express": "^4.18.1"
 	},
 	"devDependencies": {
 		"@types/compression": "^1.7.2",

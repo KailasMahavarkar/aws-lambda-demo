@@ -4,7 +4,8 @@ import express, { Request, Response } from "express";
 import compression from "compression";
 import dotenv from "dotenv";
 import dotenvConversion from "dotenv-conversion";
-import { MODE, runDev } from "./helpers/helper";
+import { runDev } from "./helpers/helper";
+const MODE = process.env.MODE || "dev";
 
 let myEnv;
 if (MODE === "prod") {
@@ -58,14 +59,6 @@ app.get("/", (req, res) => {
 });
 
 // basic 200 response on index page
-app.get("/", (req, res) => {
-	return res.send({
-		message: "Welcome to the Testapp",
-		status: "success",
-	});
-});
-
-// basic 200 response on index page
 app.get("/ping", (req, res) => {
 	return res.send({
 		message: "pong",
@@ -74,12 +67,17 @@ app.get("/ping", (req, res) => {
 });
 
 // start server only in dev mode (prod mode is Lambda)
-runDev(() => {
+if (MODE === "prod") {
+	console.log({
+		message: `connected to serverless | mode:${MODE}`,
+	});
+	process.exit(0);
+} else {
 	app.listen(env.PORT, async () => {
 		console.log({
-			message: `connected to server ${env.PORT} | Mode:${MODE}`,
+			message: `connected to server ${env.PORT} | mode:${MODE}`,
 		});
 	});
-});
+}
 
 export default app;
