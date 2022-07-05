@@ -73,8 +73,6 @@ app.get("/ping", (req, res) => {
 	});
 });
 
-if (MODE === "dev") {
-}
 // start server only in dev mode (prod mode is Lambda)
 runDev(() => {
 	app.listen(env.PORT, async () => {
