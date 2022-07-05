@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+        "module": "CommonJs",
+		"target": "es6",
+		"typeRoots": ["./node_modules/@types"],
+		"rootDir": "./",
+		"outDir": "./dist",
+		"allowJs": false,
+		"sourceMap": false,
+		"pretty": true,
+		"alwaysStrict": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+        "esModuleInterop": true,
+		"watch": true,
+        "skipLibCheck": true
+	},
+	"exclude": ["node_modules", "dist"],
+	"include": ["src/**/*.ts", "src/app.ts"],
+	"rules": {
+		"@typescript-eslint/ban-ts-ignore": "off"
+	},
+	"files": ["src/app.ts"]
+}

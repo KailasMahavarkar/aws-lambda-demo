@@ -1,0 +1,7 @@
+{
+	"watch": ["src"],
+	"ignore": ["src/**/*.test.ts"],
+	"ext": "ts,mjs,js,json,graphql",
+	"exec": "esr ./src/app.ts --cache",
+	"legacyWatch": true
+}
